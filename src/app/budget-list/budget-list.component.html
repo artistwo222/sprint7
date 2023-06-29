@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="d-flex flex-column my-3">
+    <button class="boton btn mb-3 me-3" (click)="filterByDate()">Ordenar por fecha</button>
+    <button class="boton btn mb-3 me-3" (click)="filterByName()">Ordenar por orden alfabético</button>
+    <button class="boton btn mb-3 me-3" (click)="resetOrder()">Volver al orden inicial</button>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <form class="d-flex" role="search">
+          <input [(ngModel)]="filterBudget" name="filterBudget" class="form-control me-2" type="search"
+            placeholder="Buscar presupuesto" aria-label="Buscar">
+          <button class="btn boton" type="submit">Buscar</button>
+        </form>
+      </div>
+    </nav>
+    <table class="table tablaPresupuestos">
+      <thead>
+        <tr>
+          <th scope="col">Cliente</th>
+          <th scope="col">Presupuesto</th>
+          <th scope="col">Servicios</th>
+          <th scope="col">Precio total</th>
+          <th scope="col">URL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let budget of budgetDataList | filter:filterBudget">
+          <td>{{ budget.client }}</td>
+          <td>{{ budget.budget }}</td>
+          <td>
+            <div *ngIf="budget.web">Página web ({{budget.webPrice}}€)</div>
+            <div *ngIf="budget.seo">Consultoría SEO (300€)</div>
+            <div *ngIf="budget.google">Campaña de Google Ads (200€)</div>
+          </td>
+          <td>{{ budget.totalPrice }}€</td>
+          <td><svg (click)="viewBudgetDetail(budget.id)" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+              fill="currentColor" class="shareBtn bi bi-share" viewBox="0 0 16 16">
+              <path
+                d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" />
+            </svg></td>
+        </tr>
+      </tbody>
+    </table>

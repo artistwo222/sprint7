@@ -1,1 +1,281 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+body {
+  background-image: url('../src/assets/12547-tecnologia.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+// Variables de estilo
+$color-primario: #007bff;
+$color-fondo-caja: rgba(255, 255, 255, 0.8);
+$color-borde-caja: #00a2ff;
+$color-sombra-caja: rgba(255, 255, 255, 0.2);
+$fuente-maquina-escribir: 'Courier New', monospace;
+$tamano-letra-titulo: 1.5rem;
+
+// Estilos generales para los componentes
+
+.panel {
+  // Estilos para el panel
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+  background-color: $color-fondo-caja;
+  border: 2px solid $color-borde-caja;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 0 10px $color-sombra-caja;
+
+  .titulo {
+    // Estilos para el título principal
+    font-size: $tamano-letra-titulo;
+    margin-bottom: 1rem;
+  }
+}
+
+.panel .input-group {
+  // Estilos para los grupos de entrada
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.panel label {
+  // Estilos para las etiquetas
+  margin-right: 0.75rem;
+  font-family: $fuente-maquina-escribir;
+}
+
+.panel .btn {
+  // Estilos para los botones
+  border-radius: 0.25rem;
+  background-color: $color-primario;
+  color: #fff;
+  font-family: $fuente-maquina-escribir;
+}
+
+.panel .form-control {
+  // Estilos para los controles de formulario
+  font-family: $fuente-maquina-escribir;
+}
+
+.panel .infobtn {
+  // Estilos para el botón de información
+  cursor: pointer;
+}
+
+.modalBtn {
+  // Estilos para los botones modales
+  margin-top: 1rem;
+  font-family: $fuente-maquina-escribir;
+}
+
+.boton {
+  // Estilos para los botones
+  border-radius: 0.25rem;
+  background-color: $color-primario;
+  color: #fff;
+  font-family: $fuente-maquina-escribir;
+}
+
+.tablaPresupuestos {
+  // Estilos para la tabla de presupuestos
+  margin-top: 1.5rem;
+  font-family: $fuente-maquina-escribir;
+}
+
+.shareBtn {
+  // Estilos para el botón de compartir
+  cursor: pointer;
+}
+
+// Estilos para el componente Home
+
+.home-container {
+  // Estilos para el contenedor principal
+  display: flex;
+  flex-direction: row;
+  margin: 1rem 0;
+}
+
+.home-container .col-6 {
+  // Estilos para las columnas del contenedor principal
+  flex: 1;
+  margin-right: 1rem;
+}
+
+.home-container .col-6:last-child {
+  margin-right: 0;
+}
+
+.home-container .col-6>div {
+  // Estilos para los elementos dentro de las columnas
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 2px solid #00a2ff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.home-container .col-6 .titulo {
+  // Estilos para el título dentro de las columnas
+  font-size: $tamano-letra-titulo;
+  margin-bottom: 1rem;
+}
+
+.home-container .col-6 .inputsPresupuesto {
+  // Estilos para el grupo de entradas dentro de las columnas
+  background-color: transparent;
+}
+
+.home-container .col-6 .inputsPresupuesto input {
+  // Estilos para los inputs dentro del grupo de entradas
+  background-color: transparent;
+}
+
+.home-container .col-6 .errorMsg {
+  // Estilos para el mensaje de error dentro de las columnas
+  background-color: transparent;
+}
+
+.home-container .col-6 .btn {
+  // Estilos para los botones dentro de las columnas
+  background-color: #007bff;
+}
+
+.home-container .col-6 .form-check-label {
+  // Estilos para las etiquetas del formulario dentro de las columnas
+  color: #000;
+}
+
+.home-container .col-6 p {
+  // Estilos para los párrafos dentro de las columnas
+  color: #000;
+}
+
+.home-container .col-6 .tablaPresupuestos {
+  // Estilos para la tabla de presupuestos dentro de las columnas
+  background-color: transparent;
+}
+
+.home-container .col-6 .shareBtn {
+  // Estilos para el botón de compartir dentro de las columnas
+  color: #000;
+}
+
+
+// Estilos generales
+body {
+  font-family: "Courier New", monospace;
+}
+
+.box {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid #007bff;
+  box-shadow: 0 0 10px #fff;
+}
+
+.bigger-text {
+  font-size: 1.2em;
+}
+
+// Estilos específicos para el componente home
+.home .box {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+
+.mx-5 {
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+}
+
+.mt-5 {
+  margin-top: 5px !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.flex-row {
+  flex-direction: row !important;
+}
+
+.col-6 {
+  flex-basis: 50% !important;
+  max-width: 50% !important;
+}
+
+.p {
+  margin-top: 0 !important;
+}
+
+.form-control {
+  margin-bottom: 10px !important;
+}
+
+.inputsPresupuesto {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.ng-invalid.ng-dirty.ng-touched {
+  border: 1px solid red !important;
+}
+
+.errorMsg {
+  color: red !important;
+}
+
+.btn {
+  padding: 10px 20px !important;
+  border: none !important;
+  border-radius: 5px !important;
+  color: white !important;
+  background-color: #007bff !important;
+  cursor: pointer !important;
+  transition: background-color 0.3s !important;
+}
+
+.btn:hover {
+  background-color: #0056b3 !important;
+}
+
+.container {
+  display: flex !important;
+  flex-direction: column !important;
+  margin-top: 3px !important;
+}
+
+.panel {
+  margin-bottom: 20px !important;
+  padding: 15px !important;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  border: 1px solid #007bff !important;
+  border-radius: 5px !important;
+}
+
+.boton {
+  margin-right: 5px !important;
+}
+
+.tablaPresupuestos {
+  width: 100% !important;
+  margin-top: 10px !important;
+  border-collapse: collapse !important;
+}
+
+.tablaPresupuestos th,
+.tablaPresupuestos td {
+  padding: 10px !important;
+  border: 1px solid #ccc !important;
+}

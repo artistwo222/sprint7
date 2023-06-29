@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="mx-5 mt-5 d-flex flex-row custom-container">
+    <div class="col-6">
+      <div class="custom-heading">
+        <p class="custom-heading-text">¿Qué quieres hacer?</p>
+      </div>
+
+      <form [formGroup]="budgetForm" class="d-flex flex-column">
+        <div class="mb-3 d-flex flex-column inputsPresupuesto">
+          <input type="text" class="form-control mb-2" placeholder="Nombre del cliente" aria-label="Nombre de cliente"
+            formControlName="client" [required]="true">
+          <div
+            *ngIf="budgetForm.controls['client'].invalid && (budgetForm.controls['client'].dirty || budgetForm.controls['client'].touched)">
+            <div *ngIf="budgetForm.controls['client'].errors?.['required']" class="my-3 errorMsg">El nombre del cliente
+              es
+              obligatorio</div>
+          </div>
+          <input type="text" class="form-control" placeholder="Nombre del presupuesto"
+            aria-label="Nombre del presupuesto" formControlName="budget" required>
+          <div
+            *ngIf="budgetForm.controls['budget'].invalid && (budgetForm.controls['budget'].dirty || budgetForm.controls['budget'].touched)">
+            <div *ngIf="budgetForm.controls['budget'].errors?.['required']" class="my-3 errorMsg">El nombre del
+              presupuesto es obligatorio</div>
+          </div>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="flexCheckDefault" name="web" value="500"
+            formControlName="web" (change)="updatePrice()" [(ngModel)]="isOn">
+          <label class="form-check-label" for="flexCheckDefault">
+            Una página web (500€)
+          </label>
+          <app-panel *ngIf="isOn" class="appearAnimation"></app-panel>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="flexCheckChecked" name="seo" value="300"
+            formControlName="seo" (change)="updatePrice()">
+          <label class="form-check-label" for="flexCheckChecked">
+            Una consultoría SEO (300€)
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="flexCheckDefault" name="google" value="200"
+            formControlName="google" (change)="updatePrice()">
+          <label class="form-check-label" for="flexCheckDefault">
+            Una campaña de Google Ads (200€)
+          </label>
+        </div>
+      </form>
+      <div>
+        <p class="custom-price">Precio: {{price}}€</p>
+      </div>
+      <div *ngIf="budgetForm.invalid && (budgetForm.touched || budgetForm.dirty)" class="my-3 errorMsg">
+        Debe seleccionar al menos un servicio.
+      </div>
+      <div>
+        <button class="btn boton me-3" (click)="goBack()">Volver</button>
+        <button class="btn boton" (click)="saveBudget()">Guardar</button>
+      </div>
+
+    </div>
+
+    <div class="col-6">
+      <app-budget-list></app-budget-list>
+    </div>
+
+  </div>
+</div>
